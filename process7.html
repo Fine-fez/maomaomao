@@ -23,7 +23,7 @@
         
         /* 设置body背景图片 */
         body {
-            background-image: url('./wamao_img/background1.png');
+            background-image: url('wamao_img/background1.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -260,14 +260,14 @@
 </head>
 <body>
     <!-- 所有覆盖图片 -->
-    <img src="./wamao_img/image5.png" alt="image2" class="overlay-image image5">
-    <img src="./wamao_img/image7.png" alt="image2" class="overlay-image image7">
-    <img src="./wamao_img/image25.png" alt="image3" class="overlay-image image25">
+    <img src="wamao_img/image5.png" alt="image2" class="overlay-image image5">
+    <img src="wamao_img/image7.png" alt="image2" class="overlay-image image7">
+    <img src="wamao_img/image25.png" alt="image3" class="overlay-image image25">
     <!-- <img src="../wamao_img/27wamao1/wamao1.png" alt="image3" class="overlay-image wamao"> -->
-    <img src="./wamao_img/jindutiao1.png" alt="jindutiao1" class="overlay-image jindutiao1">
-    <img src="./wamao_img/jindutiao2.png" alt="jindutiao2" class="overlay-image jindutiao2">
+    <img src="wamao_img/jindutiao1.png" alt="jindutiao1" class="overlay-image jindutiao1">
+    <img src="wamao_img/jindutiao2.png" alt="jindutiao2" class="overlay-image jindutiao2">
     <!-- 添加image9 -->
-    <img src="./wamao_img/image9.png" alt="image9" class="image9">
+    <img src="wamao_img/image9.png" alt="image9" class="image9">
     
     <!-- 添加结果wamao图片容器 -->
     <div id="resultContainer"></div>
@@ -313,7 +313,7 @@
             if (selectedWamaoImage) {
                 // 创建结果图片元素
                 const wamaoImg = document.createElement('img');
-                wamaoImg.src = `./27wamao1/${selectedWamaoImage}`;
+                wamaoImg.src = `27wamao1/${selectedWamaoImage}`;
                 wamaoImg.alt = 'Result Wamao';
                 
                 // 设置样式
@@ -482,7 +482,7 @@
                         }
                         
                         // 构建新图片路径
-                        const coloredWamaoImagePath = `./27wamao2/wamao${wamaoNumber}_${colorSuffix}.png`;
+                        const coloredWamaoImagePath = `27wamao2/wamao${wamaoNumber}_${colorSuffix}.png`;
                         const coloredWamaoImageName = `wamao${wamaoNumber}_${colorSuffix}.png`;
                         
                         console.log(`原始图片编号: ${wamaoNumber}`);
