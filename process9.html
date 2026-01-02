@@ -24,7 +24,7 @@
         
         /* 设置body背景图片 */
         body {
-            background-image: url('../wamao_img/background4.jpg');
+            background-image: url('./wamao_img/background4.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -220,13 +220,13 @@
 </head>
 <body>
     <!-- 所有覆盖图片 -->
-    <img src="../wamao_img/image26.png" alt="image1" class="overlay-image image26">
-    <img src="../wamao_img/image27.png" alt="image2" class="overlay-image image27">
-    <img src="../wamao_img/image28.png" alt="image3" class="overlay-image image28">
-    <img src="../wamao_img/image29.png" alt="image4" class="overlay-image image29">
-    <img src="../wamao_img/image33.png" alt="image1" class="overlay-image yunduo yunduo1">
-    <img src="../wamao_img/image34.png" alt="image1" class="overlay-image yunduo yunduo2">
-    <img src="../wamao_img/image35.png" alt="image1" class="overlay-image yunduo yunduo3">
+    <img src="./wamao_img/image26.png" alt="image1" class="overlay-image image26">
+    <img src="./wamao_img/image27.png" alt="image2" class="overlay-image image27">
+    <img src="./wamao_img/image28.png" alt="image3" class="overlay-image image28">
+    <img src="./wamao_img/image29.png" alt="image4" class="overlay-image image29">
+    <img src="./wamao_img/image33.png" alt="image1" class="overlay-image yunduo yunduo1">
+    <img src="./wamao_img/image34.png" alt="image1" class="overlay-image yunduo yunduo2">
+    <img src="./wamao_img/image35.png" alt="image1" class="overlay-image yunduo yunduo3">
     
     <!-- 添加提示框 -->
     <div id="hintBox" class="hint-box">
@@ -259,7 +259,7 @@
                             console.log('获取到带颜色的wamao图片信息:', coloredWamaoImageName);
                             
                             // 构建完整的图片路径
-                            const coloredWamaoImagePath = `../27wamao2/${coloredWamaoImageName}`;
+                            const coloredWamaoImagePath = `./27wamao2/${coloredWamaoImageName}`;
                             
                             // 创建img元素
                             const coloredWamaoImg = document.createElement('img');
