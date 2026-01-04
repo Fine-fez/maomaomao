@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>原料制备</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         /* 基础样式重置 */
         * {
@@ -15,45 +16,36 @@
         /* 响应式基础设置 */
         html {
             font-size: 100%;
-        }
-        
-        /* 基于750px设计稿的响应式设置 */
-        @media (max-width: 750px) {
-            html {
+            /* 基于750px设计稿的响应式设置 */
+            @media (max-width: 750px) {
                 font-size: 100vw / 750;
             }
         }
         
-        /* 设置body为flex布局，居中显示内容 */
+        /* 设置body背景图片 */
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background-image: url('wamao_img/background1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             width: 100vw;
             height: 100vh;
             overflow: hidden;
-            background-color: #f5f5f5; /* 可选：添加背景色，当主容器小于屏幕时显示 */
-        }
-        
-        /* 主容器样式：保持750*1334的固定宽高比 */
-        .main-container {
+            /* 相对定位，作为所有图片的定位容器 */
             position: relative;
-            width: 100vw;
-            height: 177.87vw; /* 1334/750 = 1.7787，保持设计稿宽高比 */
-            max-height: 100vh;
-            max-width: 56.25vh; /* 750/1334 = 0.5625，当高度受限时限制宽度 */
-            overflow: hidden;
-            /* 设置背景图片 */
-            background-image: url('wamao_img/background1.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
+            /* 适配750*1334设计稿的宽高比 */
+            max-height: 177.87vh; /* 1334/750*100 */
         }
         
         /* 所有覆盖图片的通用样式 */
         .overlay-image {
             /* 绝对定位，覆盖在背景上 */
             position: absolute;
+            /* 宽度与界面宽度一致 */
+            width: 100%;
+            /* 高度与界面高度一致 */
+            height: 100%;
             /* 避免触摸事件影响 */
             pointer-events: none;
             /* 响应式图片大小 */
@@ -66,10 +58,9 @@
             /* 确保图片在最上层 */
             left: 0;
             top: 67%;
-            width: auto;
+            width: 100%;
             height: auto;
             z-index: 1;
-            width: 100%;
         }
 
         /* 图片36的样式 */
@@ -77,10 +68,10 @@
             /* 确保图片在最上层 */
             z-index: 6;
             /* 保持原始比例 */
-            width: auto;
+            width: 20%;
             height: auto;
             /* 向下向右移动 */
-            top: 70%;
+            top: 71%;
             right: 0;
             /* 启用触摸事件，使其可以被点击 */
             pointer-events: auto;
@@ -91,10 +82,10 @@
             /* 确保图片在最上层 */
             z-index: 3;
             /* 保持原始比例 */
-            width: auto;
+            width: 20%;
             height: auto;
             /* 向下向右移动，与image36位置一致 */
-            top: 70%;
+            top: 71%;
             right: 0;
             /* 默认隐藏 */
             display: none;
@@ -107,7 +98,7 @@
             /* 启用触摸事件，使其可以被点击 */
             pointer-events: auto;
             /* 保持原始比例 */
-            width: auto;
+            width: 28%;
             height: auto;
             top:70%;
         }
@@ -117,7 +108,7 @@
             /* 确保图片在最上层 */
             z-index: 3;
             /* 保持原始比例 */
-            width: auto;
+            width: 25%;
             height: auto;
             /* 向下向右移动 */
             top: 70%;
@@ -158,7 +149,7 @@
             /* 确保图片在最上层 */
             z-index: 5;
             /* 保持原始比例 */
-            width: auto;
+            width: 30%;
             height: auto;
             /* 设置初始位置 */
             left: 71%;
@@ -172,7 +163,7 @@
             /* 确保图片在最上层 */
             z-index: 4;
             /* 保持原始比例 */
-            width: auto;
+            width: 25%;
             height: auto;
             /* 向下向右移动 */
             top: 47%;
@@ -234,6 +225,13 @@
             transition: opacity 1s ease;
         }
         
+        /* 主容器样式 */
+        .main-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
         /* 材料容器样式 */
         .cailiao-container {
             width: 100%;
@@ -283,6 +281,28 @@
             animation: textSlide 7s linear forwards;
         }
         
+        /* 下一步按钮样式 */
+        #nextBtn {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            background-color: #D2B48C;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 10;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        #nextBtn:hover {
+            opacity: 1;
+        }
+
         /* 文字轮播动画 */
         @keyframes textSlide {
             0% {
@@ -736,10 +756,22 @@
             });
         };
     </script>
-</head>
+<script src="audioManager.js"></script>
+    </head>
 <body>
+    <!-- 音频控制按钮 -->
+    <div id="audioControl" style="position: absolute; top: 20px; right: 20px; z-index: 9999; cursor: pointer; width: 30px; height: 30px;">
+        <svg id="audioIcon" width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2c1.1 0 2 .9 2 2v5h5c1.1 0 2 .9 2 2s-.9 2-2 2h-5v5c0 1.1-.9 2-2 2s-2-.9-2-2v-5H5c-1.1 0-2-.9-2-2s.9-2 2-2h5V4c0-1.1.9-2 2-2z"/>
+        </svg>
+    </div>
+    <script>
+        // 绑定音频控制按钮点击事件
+        document.getElementById('audioControl').addEventListener('click', AudioManager.togglePlay);
+    </script>
+    <!-- 主容器 -->
     <div class="main-container">
-    <!-- 所有覆盖图片 -->
+        <!-- 所有覆盖图片 -->
         <!-- 材料盒子容器 -->
         <div class="cailiao-container">
             <img src="wamao_img/image31.png" alt="材料台" class="overlay-image image31 cailiao">
@@ -766,7 +798,7 @@
             <div class="hint-content">
                 <span class="hint-icon">💡</span>
                 <div class="hint-text-container">
-                    <span class="hint-text">欢迎来到瓦猫制作工艺，首先选取材料台的原材料和泥,请依次选择砂石、陶土与水~</span>
+                    <span class="hint-text">欢迎来到瓦猫制作工艺，首先选取材料台的原材料和泥,请依次选择砂石、陶土与水。</span>
                 </div>
             </div>
         </div>
