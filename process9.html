@@ -204,7 +204,7 @@
             color: #333;
             white-space: nowrap;
             display: inline-block;
-            animation: textSlide 5s linear forwards;
+            animation: textSlide 3s linear forwards;
         }
         
         /* 文字轮播动画 */
@@ -217,8 +217,19 @@
             }
         }
     </style>
+<script src="audioManager.js"></script>
 </head>
 <body>
+    <!-- 音频控制按钮 -->
+    <div id="audioControl" style="position: absolute; top: 20px; right: 20px; z-index: 9999; cursor: pointer; width: 30px; height: 30px;">
+        <svg id="audioIcon" width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2c1.1 0 2 .9 2 2v5h5c1.1 0 2 .9 2 2s-.9 2-2 2h-5v5c0 1.1-.9 2-2 2s-2-.9-2-2v-5H5c-1.1 0-2-.9-2-2s.9-2 2-2h5V4c0-1.1.9-2 2-2z"/>
+        </svg>
+    </div>
+    <script>
+        // 绑定音频控制按钮点击事件
+        document.getElementById('audioControl').addEventListener('click', AudioManager.togglePlay);
+    </script>
     <!-- 所有覆盖图片 -->
     <img src="wamao_img/image26.png" alt="屋檐" class="overlay-image image26">
     <img src="wamao_img/image27.png" alt="装饰1" class="overlay-image image27">
@@ -272,7 +283,7 @@
                             // 设置样式
                             coloredWamaoImg.style.zIndex = '5';
                             coloredWamaoImg.style.position = 'absolute';
-                            coloredWamaoImg.style.top = '62%';
+                            coloredWamaoImg.style.top = '70%';
                             coloredWamaoImg.style.left = '50%';
                             coloredWamaoImg.style.transform = 'translate(-50%, -50%) scale(1)';
                             coloredWamaoImg.style.width = 'auto';
@@ -294,7 +305,7 @@
                             console.error('未找到保存的带颜色wamao图片信息');
                         }
                     }, 1000); // 等待1秒确保提示框完全隐藏
-                }, 5000); // 5秒后隐藏提示框
+                }, 3000); // 5秒后隐藏提示框
             }, 300);
         };
         
