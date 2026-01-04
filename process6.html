@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>高温烧制</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         /* 基础样式重置 */
         * {
@@ -233,7 +234,7 @@
             color: #333;
             white-space: nowrap;
             display: inline-block;
-            animation: textSlide 10s linear forwards;
+            animation: textSlide 5s linear forwards;
         }
         
         /* 文字轮播动画 */
@@ -246,8 +247,19 @@
             }
         }
     </style>
+    <script src="audioManager.js"></script>
 </head>
 <body>
+    <!-- 音频控制按钮 -->
+    <div id="audioControl" style="position: absolute; top: 20px; right: 20px; z-index: 9999; cursor: pointer; width: 30px; height: 30px;">
+        <svg id="audioIcon" width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2c1.1 0 2 .9 2 2v5h5c1.1 0 2 .9 2 2s-.9 2-2 2h-5v5c0 1.1-.9 2-2 2s-2-.9-2-2v-5H5c-1.1 0-2-.9-2-2s.9-2 2-2h5V4c0-1.1.9-2 2-2z"/>
+        </svg>
+    </div>
+    <script>
+        // 绑定音频控制按钮点击事件
+        document.getElementById('audioControl').addEventListener('click', AudioManager.togglePlay);
+    </script>
     <!-- 所有覆盖图片 -->
     <img src="wamao_img/image12.png" alt="炉子" class="overlay-image image12">
     <img src="wamao_img/image13.png" alt="支架台" class="overlay-image image13">
@@ -268,7 +280,7 @@
         <div class="hint-content">
             <span class="hint-icon">💡</span>
             <div class="hint-text-container">
-                <span class="hint-text">进行初次高温烧制，把瓦猫推进炉子，即可开始烧制~</span>
+                <span class="hint-text">进行初次高温烧制，把瓦猫推进炉子，即可开始烧制。</span>
             </div>
         </div>
     </div>
@@ -283,7 +295,7 @@
                 setTimeout(() => {
                     hintBox.style.opacity = '0';
                     setTimeout(startOriginalAnimation, 1000); // 隐藏后启动原有动画
-                }, 10000); // 10秒文字轮播
+                }, 5000); // 10秒文字轮播
             }, 300);
         };
         
