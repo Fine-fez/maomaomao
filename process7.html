@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>装饰颜色</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         /* 基础样式重置 */
         * {
@@ -121,7 +122,7 @@
         .color-boxes-container {
             /* 绝对定位在页面底部 */
             position: absolute;
-            bottom: 135px; /* 向上移动100px */
+            bottom: 115px; /* 向上移动100px */
             left: 0;
             /* 占据整个页面宽度 */
             width: 100vw;
@@ -244,7 +245,7 @@
             color: #333;
             white-space: nowrap;
             display: inline-block;
-            animation: textSlide 10s linear forwards;
+            animation: textSlide 5s linear forwards;
         }
         
         /* 文字轮播动画 */
@@ -257,8 +258,19 @@
             }
         }
     </style>
+    <script src="audioManager.js"></script>
 </head>
 <body>
+    <!-- 音频控制按钮 -->
+    <div id="audioControl" style="position: absolute; top: 20px; right: 20px; z-index: 9999; cursor: pointer; width: 30px; height: 30px;">
+        <svg id="audioIcon" width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2c1.1 0 2 .9 2 2v5h5c1.1 0 2 .9 2 2s-.9 2-2 2h-5v5c0 1.1-.9 2-2 2s-2-.9-2-2v-5H5c-1.1 0-2-.9-2-2s.9-2 2-2h5V4c0-1.1.9-2 2-2z"/>
+        </svg>
+    </div>
+    <script>
+        // 绑定音频控制按钮点击事件
+        document.getElementById('audioControl').addEventListener('click', AudioManager.togglePlay);
+    </script>
     <!-- 所有覆盖图片 -->
     <img src="wamao_img/image5.png" alt="猫爪" class="overlay-image image5">
     <img src="wamao_img/image7.png" alt="操作台" class="overlay-image image7">
@@ -277,7 +289,7 @@
         <div class="hint-content">
             <span class="hint-icon">💡</span>
             <div class="hint-text-container">
-                <span class="hint-text">快选择喜欢的釉色装饰瓦猫吧~</span>
+                <span class="hint-text">快选择喜欢的釉色装饰瓦猫吧。</span>
             </div>
         </div>
     </div>
@@ -301,7 +313,7 @@
                     setTimeout(() => {
                         displaySavedWamaoImage();
                     }, 1000); // 等待1秒确保提示框完全隐藏
-                }, 10000); // 10秒后隐藏提示框
+                }, 5000); // 10秒后隐藏提示框
             }, 300);
         };
         
@@ -319,7 +331,7 @@
                 // 设置样式
                 wamaoImg.style.zIndex = '14';
                 wamaoImg.style.position = 'absolute';
-                wamaoImg.style.top = '35%';
+                wamaoImg.style.top = '32%';
                 wamaoImg.style.left = '50%';
                 wamaoImg.style.transform = 'translate(-50%, -50%) translateZ(0) scale(1)';
                 wamaoImg.style.width = 'auto';
@@ -501,7 +513,7 @@
                         // 设置样式
                         coloredWamaoImg.style.zIndex = '25';
                         coloredWamaoImg.style.position = 'absolute';
-                        coloredWamaoImg.style.top = '35%';
+                        coloredWamaoImg.style.top = '32%';
                         coloredWamaoImg.style.left = '50%';
                         coloredWamaoImg.style.transform = 'translate(-50%, -50%) translateZ(0) scale(0.8)';
                         coloredWamaoImg.style.width = 'auto';
